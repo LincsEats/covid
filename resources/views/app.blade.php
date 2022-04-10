@@ -11,6 +11,8 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <!-- Required chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
         <!-- Scripts -->
         @routes

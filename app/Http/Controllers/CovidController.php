@@ -9,26 +9,20 @@ use Inertia\Inertia;
 class CovidController extends Controller
 {
     public function index(CovidStatisticProvider $covidStatisticService) {
-        $today = Carbon::now()->toDateString();
-        $covid = 'covid';
-        $countryDynamic = '';
+        $today = Carbon::now()->subDays(30)->toDateString();
+        $yesterday = Carbon::now()->subDays(90)->toDateString();
+
                 
-        $confirmedCovidCasesUntilToday = $covidStatisticService->getTotalCasesByCountryAndType($countryDynamic, 'confirmed');
-        $recoveredCovidCasesUntilToday = $covidStatisticService->getTotalCasesByCountryAndType('macedonia', 'recovered');
-        $deadCovidCasesUntilToday = $covidStatisticService->getTotalCasesByCountryAndType('macedonia', 'deaths');
+        $UKCovidData = $covidStatisticService->getTotalCasesByCountry('');
+
         $countries = $covidStatisticService->getCountryList();
         
         return Inertia::render('CovidStats', [
                                     
             'countries' => $countries,
-            'country' => $countryDynamic,
 
-            $covid => [
-            'today' => $today,
-            'confirmedCovidCasesUntilToday' => $confirmedCovidCasesUntilToday,
-            'recoveredCovidCasesUntilToday' => $recoveredCovidCasesUntilToday,
-            'deadCovidCasesUntilToday' => $deadCovidCasesUntilToday,
-            ],
+            'covidData' => $UKCovidData,
+            
         ]);
 
     }
