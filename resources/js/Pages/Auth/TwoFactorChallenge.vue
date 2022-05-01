@@ -66,7 +66,7 @@ const submit = () => {
                     v-model="form.code"
                     type="text"
                     inputmode="numeric"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full px-2 py-2"
                     autofocus
                     autocomplete="one-time-code"
                 />
@@ -79,7 +79,7 @@ const submit = () => {
                     ref="recoveryCodeInput"
                     v-model="form.recovery_code"
                     type="text"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full px-2 py-2"
                     autocomplete="one-time-code"
                 />
             </div>

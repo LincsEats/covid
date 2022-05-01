@@ -10,20 +10,13 @@ class CovidController extends Controller
 {
     public function index(CovidStatisticProvider $covidStatisticService) {
         $today = Carbon::now()->subDays(30)->toDateString();
-        $yesterday = Carbon::now()->subDays(90)->toDateString();
-
-                
+        $yesterday = Carbon::now()->subDays(90)->toDateString();                
         $UKCovidData = $covidStatisticService->getTotalCasesByCountry('');
-
         $countries = $covidStatisticService->getCountryList();
-        
-        return Inertia::render('CovidStats', [
-                                    
+
+        return Inertia::render('Data/CovidStats', [                                    
             'countries' => $countries,
-
-            'covidData' => $UKCovidData,
-            
-        ]);
-
+            'covidData' => $UKCovidData,            
+        ]); 
     }
 }

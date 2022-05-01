@@ -1,5 +1,8 @@
 <?php
 use App\Http\Controllers\CovidController;
+use App\Http\Controllers\CovidTestsController;
+use App\Http\Controllers\InformationController;
+use App\Http\Controllers\AppointmentController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,9 +32,22 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
+Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
-    })->name('dashboard');
+    })->name('dashboard'); 
 });
-Route::resource('CovidStats', CovidController::class);
+Route::resource('covidstats', CovidController::class);
+Route::get('/data', [CovidController::class, 'index'])->name('CovidStats.index');
+Route::get('/information', [InformationController::class, 'index'])->name('information.index');
+Route::get('/overview', [InformationController::class, 'overview'])->name('information.overview');
+Route::get('/symptoms', [InformationController::class, 'symptoms'])->name('information.symptoms');
+Route::get('/prevention', [InformationController::class, 'prevention'])->name('information.prevention');
+Route::get('/vaccine', [InformationController::class, 'vaccine'])->name('information.vaccine');
+Route::get('/effectiveness', [InformationController::class, 'effectiveness'])->name('information.effectiveness');
+Route::get('/selfCare', [InformationController::class, 'selfCare'])->name('information.selfCare');
+Route::get('/medicalTreatments', [InformationController::class, 'medicalTreatments'])->name('information.medicalTreatments');
+Route::get('/orderhomekit', [CovidTestsController::class, 'create'])->name('covidtesting.orderhomekit');
+Route::post('/orderhomekitSave', [CovidTestsController::class, 'store'])->name('covidtesting.save');
+
+
 

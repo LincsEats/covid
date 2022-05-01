@@ -1,24 +1,26 @@
 <script setup>
 import JetApplicationLogo from '@/Jetstream/ApplicationLogo.vue';
+import { Head, Link } from '@inertiajs/inertia-vue3';
 </script>
 
 <template>
     <div>
-        <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
+        <div class="p-6 sm:px-20 bg-white border-b border-gray-200 min-h-screen lg:min-h-min mt-16">
             <div>
-                <JetApplicationLogo class="block h-12 w-auto" />
+                <JetApplicationLogo class="block  max-w-xs w-auto" />
             </div>
 
             <div class="mt-8 text-2xl">
-                Welcome to your Jetstream application!
+                Welcome to the Official Covid Support Portal!
             </div>
 
             <div class="mt-6 text-gray-500">
-                Laravel Jetstream provides a beautiful, robust starting point for your next Laravel application. Laravel is designed
-                to help you build your application using a development environment that is simple, powerful, and enjoyable. We believe
-                you should love expressing your creativity through programming, so we have spent time carefully crafting the Laravel
-                ecosystem to be a breath of fresh air. We hope you love it.
+                Get NHS advice about COVID-19, including symptoms, testing, vaccination and staying at home.
             </div>
+                <button class="btn btn-outline btn-success w-full lg:w-96 mt-6">Get a Vaccine</button>                          
+                <Link :href="route('covidtesting.orderhomekit')">
+                <button class="btn btn-outline btn-info w-full lg:w-96 mt-4 lg:ml-6">Order a Test</button>
+                </Link>
         </div>
 
         <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2">

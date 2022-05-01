@@ -1,6 +1,5 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Welcome from '@/Jetstream/Welcome.vue';
 
 defineProps({
     canLogin: Boolean,
@@ -10,18 +9,17 @@ defineProps({
     covidData: Object,
 })
 
-</script>
+window.onload = function() {
+    $('#myTable').dataTable();
+};
 
+
+</script>
 <template>
-    <AppLayout title="Dashboard">
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-             {{ $page.props.covidData.country}}
-            </h2>
-        </template>
-        <div class="bg-white rounded-b-box flex min-h-[6rem] min-w-[18rem]  flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined" style="background-size: 5px 5px">
+    <AppLayout title="CovidStats">
+        <div class="bg-white rounded-b-box flex min-h-[6rem] min-w-[18rem]  flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 undefined mt-28" style="background-size: 5px 5px">
             <div class="overflow-x-auto">
-            <table class="table table-compact w-full"  data-theme="light" id="example-1">
+            <table class="table table-compact w-full"  data-theme="light" id="myTable">
                 <thead>
                 <tr>
                     <th>Country</th>

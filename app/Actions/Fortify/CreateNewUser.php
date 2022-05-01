@@ -29,7 +29,6 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
-
       
             return tap(User::create([
                 'name' => $input['name'],
@@ -39,7 +38,6 @@ class CreateNewUser implements CreatesNewUsers
             ]), function (User $user) {
                 $this->createRole($user);
             });
-
     }
     //assign user role on creation 
     protected function createRole(User $user)
