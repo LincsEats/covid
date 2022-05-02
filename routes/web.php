@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\CovidController;
 use App\Http\Controllers\CovidTestsController;
+use App\Http\Controllers\BookingsController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\AppointmentController;
 use Illuminate\Foundation\Application;
@@ -48,6 +49,10 @@ Route::get('/selfCare', [InformationController::class, 'selfCare'])->name('infor
 Route::get('/medicalTreatments', [InformationController::class, 'medicalTreatments'])->name('information.medicalTreatments');
 Route::get('/orderhomekit', [CovidTestsController::class, 'create'])->name('covidtesting.orderhomekit');
 Route::post('/orderhomekitSave', [CovidTestsController::class, 'store'])->name('covidtesting.save');
+
+
+Route::get('/vaccine/booking', [BookingsController::class, 'create'])->name('booking.vaccine');
+Route::post('/vaccine/save', [BookingsController::class, 'store'])->name('booking.save');
 
 
 

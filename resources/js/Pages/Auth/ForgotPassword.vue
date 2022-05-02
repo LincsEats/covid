@@ -45,7 +45,7 @@ const submit = () => {
                     id="email"
                     v-model="form.email"
                     type="email"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full px-2 py-2"
                     required
                     autofocus
                 />

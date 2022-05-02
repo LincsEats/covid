@@ -32,9 +32,11 @@
         "@fullcalendar/timegrid": "^5.11.0",
         "@fullcalendar/vue": "^5.11.0",
         "@ocrv/vue-tailwind-pagination": "^0.0.4",
+        "alga-css": "^1.0.0-stone-2",
         "chart.js": "^3.7.1",
         "daisyui": "^2.13.6",
         "numeral": "^2.0.6",
+        "v-calendar": "^3.0.0-alpha.8",
         "vue-tailwind": "^2.5.0",
         "vuejs-paginate-next": "^1.0.2",
         "vuejs-smart-table": "^0.0.8"

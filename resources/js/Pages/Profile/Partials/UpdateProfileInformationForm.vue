@@ -130,7 +130,7 @@ const clearPhotoFileInput = () => {
                     id="name"
                     v-model="form.name"
                     type="text"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full px-2 py-2"
                     autocomplete="name"
                 />
                 <JetInputError :message="form.errors.name" class="mt-2" />
@@ -143,7 +143,7 @@ const clearPhotoFileInput = () => {
                     id="email"
                     v-model="form.email"
                     type="email"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full px-2 py-2"
                 />
                 <JetInputError :message="form.errors.email" class="mt-2" />
             </div>
